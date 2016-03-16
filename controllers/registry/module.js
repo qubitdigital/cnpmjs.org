@@ -502,7 +502,7 @@ exports.addPackageAndDist = function *(next) {
 
   var attachment = pkg._attachments[filename];
   var versionPackage = pkg.versions[version];
-  var maintainers = versionPackage.maintainers;
+  var maintainers = versionPackage.maintainers || result.maintainers;
 
   // should never happened in normal request
   if (!maintainers) {
