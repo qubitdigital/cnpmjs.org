@@ -858,6 +858,10 @@ SyncModuleWorker.prototype._syncOneVersion = function *(versionIndex, sourcePack
     }
   };
 
+  if (config.registryToken) {
+    options.headers.Authorization = 'Bearer ' + config.registryToken
+  }
+
   var dependencies = Object.keys(sourcePackage.dependencies || {});
   var devDependencies = [];
   if (this.syncDevDependencies) {

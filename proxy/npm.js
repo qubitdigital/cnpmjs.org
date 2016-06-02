@@ -26,6 +26,11 @@ function* request(url, options) {
   options.headers = {
     'user-agent': USER_AGENT
   };
+
+  if (config.registryToken) {
+    options.headers.Authorization = 'Bearer ' + config.registryToken
+  }
+
   var registry = options.registry || config.sourceNpmRegistry;
   url = registry + url;
   var r;
