@@ -28,6 +28,7 @@ var pool = mysql.createPool({
   port: server.port,
   user: server.user,
   password: server.password,
+  ssl: server.ssl,
   database: config.mysqlDatabase,
   connectionLimit: config.mysqlMaxConnections,
   multipleStatements: true,
