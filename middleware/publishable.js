@@ -60,22 +60,6 @@ module.exports = function *publishable(next) {
  */
 
 function checkScope(name, ctx) {
-  if (!ctx.user.scopes || !ctx.user.scopes.length) {
-    ctx.status = 404;
-    return false;
-  }
-
-  var scope = name.split('/')[0];
-  if (ctx.user.scopes.indexOf(scope) === -1) {
-    debug('assert scope  %s error', name);
-    ctx.status = 400;
-    ctx.body = {
-      error: 'invalid scope',
-      reason: util.format('scope %s not match legal scopes %j', scope, ctx.user.scopes)
-    };
-    return false;
-  }
-
   return true;
 }
 
@@ -84,20 +68,9 @@ function checkScope(name, ctx) {
  */
 
 function checkNoneScope(ctx) {
-  if (!config.scopes
-    || !config.scopes.length
-    || !config.forcePublishWithScope) {
-    return true;
-  }
-
-  // only admins can publish or unpublish non-scope modules
-  if (ctx.user.isAdmin) {
-    return true;
-  }
-
   ctx.status = 403;
   ctx.body = {
     error: 'no_perms',
-    reason: 'only allow publish with ' + ctx.user.scopes.join(',') + ' scope(s)'
+    reason: 'not allowed to publish non-scoped packages'
   };
 }
