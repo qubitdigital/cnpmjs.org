@@ -29,6 +29,19 @@ cnpmjs.org
 
 ![logo](https://raw.github.com/cnpm/cnpmjs.org/master/logo.png)
 
+## Qubit-specific notes
+
+This is a fork of [`cnpmjs.org`](https://github.com/cnpm/cnpmjs.org), modified to
+work as a backend to [`enporium`](https://github.com/qubitdigital/enporium).
+
+We've renamed it to `@qutics/cnpmjs.org` and published it to our own private
+registry so that it can be an `enporium` dependency as an npm-style package,
+the caching of which seems to be handled more predictably by `yarn` than are
+GitHub dependencies. We're versioning it starting at `0.1.0`.
+
+The plan is to eventually switch back to the official `cnpmjs.org` package,
+if and when we have time to collaborate with them on some pull requests we would need.
+
 ## What is this?
 
 Private npm registry and web for Enterprise, base on [koa](http://koajs.com/),
