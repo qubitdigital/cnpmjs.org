@@ -1,6 +1,6 @@
 {
   "name": "@qutics/cnpmjs.org",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The original cnpmjs.org modified to work with enporium and scoped to @qutics",
   "main": "index.js",
   "scripts": {
